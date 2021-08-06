@@ -1,11 +1,19 @@
 import React from 'react'
-import { Commit } from 'moduleCommits/components/Commit'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { CommitsPage } from 'moduleCommits/pages'
 
 const App = () => {
   return (
-    <div className="flex bg-blue-600">
-      Skeleton
-      <Commit />
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/">
+            <CommitsPage />
+          </Route>
+
+          <Redirect to="/" />
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 }

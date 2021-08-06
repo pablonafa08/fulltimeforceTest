@@ -2,11 +2,12 @@ import React from 'react'
 import { useAsyncState } from 'core/utils'
 import { CommitService } from '../data'
 import { formatData, CommitDataFormat } from '../utils'
+import { Card } from '../lib'
 
 const { getCommits } = CommitService
 
-export const Commit = () => {
-  const { data, isLoading, isError, setError, setSuccess } = useAsyncState<CommitDataFormat[]>({ status: 'loading' })
+export const Commits = () => {
+  const { data, isLoading, isError, setSuccess, setError } = useAsyncState<CommitDataFormat[]>({ status: 'loading' })
 
   React.useEffect(() => {
     const getCommitsOfRepository = async () => {
@@ -30,8 +31,8 @@ export const Commit = () => {
 
   return (
     <div>
-      {data.map(i => (
-        <div>{i.message}</div>
+      {data.map(item => (
+        <Card key={item.id} {...item} />
       ))}
     </div>
   )
