@@ -2,7 +2,7 @@ import React from 'react'
 import { useAsyncState } from 'core/utils'
 import { CommitService } from '../data'
 import { formatData, CommitDataFormat } from '../utils'
-import { MainContainer, Card, SkeletonList } from '../lib'
+import { MainContainer, Card, SkeletonList, ErrorMessage } from '../lib'
 
 const { getCommits } = CommitService
 
@@ -27,7 +27,7 @@ export const Commits = () => {
 
   if (isLoading) return <SkeletonList />
 
-  if (isError) return <div>Ocurrió un error al cargar los commits</div>
+  if (isError) return <ErrorMessage>Ocurrió un error al cargar los commits</ErrorMessage>
 
   return (
     <MainContainer>

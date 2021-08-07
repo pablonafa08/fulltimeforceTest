@@ -34,3 +34,23 @@ export const SkeletonList = () => (
     ))}
   </MainContainer>
 )
+
+export const ErrorMessage = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  background: '#F66055',
+  border: '1px solid #F21C0D',
+  color: '#FFF',
+  fontSize: 20,
+  fontWeight: 600,
+  borderRadius: 10,
+  minHeight: 50,
+  maxWidth: 1000,
+  margin: '40px auto',
+  padding: 8,
+  [theme.breakpoints.up('sm')]: {
+    margin: 'auto',
+  },
+}))

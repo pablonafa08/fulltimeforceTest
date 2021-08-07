@@ -15,11 +15,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 10,
     boxShadow: '0px 3px 6px #00000029',
     backgroundColor: '#FFF',
-    minHeight: `calc(100vh - ${HEADER_HEIGHT + 40}px)`,
+    minHeight: `calc(100vh - ${HEADER_HEIGHT + 24}px)`,
     [theme.breakpoints.up('sm')]: {
       padding: 40,
       margin: 20,
       marginTop: HEADER_HEIGHT + 20,
+      minHeight: `calc(100vh - ${HEADER_HEIGHT + 40}px)`,
     },
   },
 }))
