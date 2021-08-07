@@ -39,11 +39,11 @@ export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, autho
         </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between items-end">
         <span>
           Fecha: {date} ({formatDistanceToNow(new Date(date), { includeSeconds: true })})
         </span>
-        <span>{id}</span>
+        <span style={{ color: '#293462' }}>{id.substring(0, 7)}</span>
       </div>
     </Container>
   )
