@@ -2,7 +2,8 @@ import React from 'react'
 import { formatDistanceToNow, parseISO } from 'date-fns'
 import { CommitDataFormat } from '../utils'
 import { Container, ImgGit } from './CardItems'
-import gitImg from 'img/git.png'
+
+import gitImg from 'img/gitHubLogo.png'
 
 const getDate = date => {
   if (!date) {
@@ -21,7 +22,7 @@ export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, autho
   console.log(date)
   return (
     <Container>
-      {/* <ImgGit src={gitImg} alt="" /> */}
+      <ImgGit src={gitImg} alt="GitHub Logo" />
 
       <a href={url} className="font-semibold text-xl" target="_blank" rel="noreferrer">
         {message}
@@ -32,18 +33,22 @@ export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, autho
         <div className="font-semibold">
           Autor:{' '}
           <a href={author.profileUrl} target="_blank" rel="noreferrer">
-            <span className="font-light" style={{ color: '#293462' }}>
+            <span className="font-light italic" style={{ color: '#293462' }}>
               {author.name} - {author.user}
             </span>
           </a>
         </div>
       </div>
 
-      <div className="flex justify-between items-end">
-        <span>
-          Fecha: {date} ({formatDistanceToNow(new Date(date), { includeSeconds: true })})
-        </span>
-        <span style={{ color: '#293462' }}>{id.substring(0, 7)}</span>
+      <div>
+        <span className="font-semibold">Fecha:</span> {date}
+      </div>
+
+      <div className="flex justify-between items-end" style={{ color: '#293462' }}>
+        <span>({formatDistanceToNow(new Date(date), { includeSeconds: true })})</span>
+        <a href={url} className="italic" target="_blank" rel="noreferrer">
+          {id.substring(0, 7)}
+        </a>
       </div>
     </Container>
   )

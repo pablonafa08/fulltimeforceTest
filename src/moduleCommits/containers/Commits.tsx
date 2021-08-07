@@ -2,7 +2,7 @@ import React from 'react'
 import { useAsyncState } from 'core/utils'
 import { CommitService } from '../data'
 import { formatData, CommitDataFormat } from '../utils'
-import { Card } from '../lib'
+import { MainContainer, Card } from '../lib'
 
 const { getCommits } = CommitService
 
@@ -30,10 +30,10 @@ export const Commits = () => {
   if (isError) return <div>Ocurrió un error al cargar los commits</div>
 
   return (
-    <div>
+    <MainContainer>
       {data.map(item => (
         <Card key={item.id} {...item} />
       ))}
-    </div>
+    </MainContainer>
   )
 }
