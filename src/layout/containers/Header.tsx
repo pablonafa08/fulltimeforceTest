@@ -1,7 +1,7 @@
 import React from 'react'
 import { Theme, makeStyles, AppBar, Toolbar } from '@material-ui/core'
 
-import logo from 'img/git.png'
+import logo from 'img/gitHubLogo.png'
 
 export const HEADER_HEIGHT = 64
 
