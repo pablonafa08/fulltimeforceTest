@@ -13,10 +13,11 @@ interface LocaleState {
 type LocaleActions = { type: 'setLocale'; payload: SupportedLocales }
 
 const locales: Locales<string> = { es: 'Español', en: 'English' }
+const localStorageData = localStorage.getItem('locale') as SupportedLocales
 
 const initialState: LocaleState = {
   locales,
-  locale: 'es',
+  locale: localStorageData || 'es',
 }
 
 const reducer: Reducer<LocaleState, LocaleActions> = (state, action) => {

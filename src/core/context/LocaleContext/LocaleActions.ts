@@ -6,6 +6,7 @@ export const useLocaleActions = () => {
 
   function setLocale(locale: SupportedLocales) {
     dateLocale.currentLocale = locale
+    localStorage.setItem('locale', locale)
     dispatch({ type: 'setLocale', payload: locale })
   }
 

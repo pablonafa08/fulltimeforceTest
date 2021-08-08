@@ -16,6 +16,7 @@ const initState = {
   status: 'init' as AsyncStateStatus,
 }
 
+// eslint-disable-next-line
 const reducer = <T, _ = any>(state: AsyncState<T>, action: AsyncStateActions<T>): AsyncState<T> => {
   switch (action.type) {
     case 'init':
