@@ -1,5 +1,19 @@
 import React from 'react'
+import { styled } from '@material-ui/core'
 import { useLocaleState, useLocaleActions, SupportedLocales } from 'core/context'
+
+export const SelectStyled = styled('select')({
+  background: '#293462',
+  cursor: 'pointer',
+  fontWeight: 500,
+  outline: 'none !important',
+})
+
+export const OptionStyled = styled('option')({
+  background: '#fff',
+  color: '#293462',
+  fontWeight: 500,
+})
 
 export const SelectLocale = () => {
   const { locale, locales } = useLocaleState()
@@ -10,14 +24,14 @@ export const SelectLocale = () => {
   }
 
   return (
-    <select value={locale} onChange={handleSelect}>
-      {Object.keys(locales).map((key: string) => {
+    <SelectStyled value={locale} onChange={handleSelect}>
+      {Object.keys(locales).map((lang: string) => {
         return (
-          <option value={key} key={key}>
-            {locales[key]}
-          </option>
+          <OptionStyled value={lang} key={lang}>
+            {locales[lang]}
+          </OptionStyled>
         )
       })}
-    </select>
+    </SelectStyled>
   )
 }
