@@ -2,11 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'styles'
 import App from './App'
+import { AppProviders } from './Providers'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>,
   document.getElementById('root'),
 )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAsyncState } from 'core/utils'
+import { useAsyncState } from 'core/hooks'
 import { CommitService } from '../data'
 import { formatData, CommitDataFormat } from '../utils'
 import { MainContainer, Card, SkeletonList, ErrorMessage } from '../lib'
