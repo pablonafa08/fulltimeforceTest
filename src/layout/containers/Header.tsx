@@ -1,13 +1,12 @@
 import React from 'react'
-import { Theme, makeStyles, AppBar, Toolbar } from '@material-ui/core'
+import { makeStyles, AppBar, Toolbar } from '@material-ui/core'
 
 import logo from 'img/gitHubLogo.png'
 
 export const HEADER_HEIGHT = 64
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
     boxShadow: 'none',
     height: HEADER_HEIGHT,
     background: '#293462',
@@ -15,15 +14,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   body: {
     display: 'flex',
     justifyContent: 'space-between',
-    padding: '0 20px 0 10px',
+    padding: '0 20px',
     margin: 0,
-  },
-  logo: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    height: 40,
+    height: '100%',
   },
 }))
 
@@ -33,7 +26,7 @@ export const Header = () => {
   return (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar className={classes.body}>
-        <img src={logo} alt="Logo TripElf" className={classes.logo} />
+        <img src={logo} alt="Logo TripElf" className="h-10" />
       </Toolbar>
     </AppBar>
   )

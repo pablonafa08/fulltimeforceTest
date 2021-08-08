@@ -23,6 +23,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "translates": "node scripts/translates.js",
+    "prestart": "npm run translates",
+    "prebuild": "npm run translates",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
