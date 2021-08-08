@@ -1,5 +1,6 @@
 import React from 'react'
 import { formatDistanceToNow, parseISO } from 'date-fns'
+import { useDateFormat, useDateLocale } from 'core/hooks'
 import { useCommitLocales } from '../i18n'
 import { CommitDataFormat } from '../utils'
 import { Container, ImgGit } from './CardItems'
@@ -20,8 +21,9 @@ const getDate = date => {
 }
 
 export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, author }) => {
-  const { date: dateTranslate } = useCommitLocales()
-  console.log(date)
+  const { author: authorTranslate, date: dateTranslate } = useCommitLocales()
+  const { format } = useDateFormat()
+  const dateLocale = useDateLocale()
 
   return (
     <Container>
@@ -34,7 +36,7 @@ export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, autho
       <div className="flex items-center my-4">
         <img className="w-10 h-10 rounded-full mr-4" src={author.avatar} alt="Avatar author" />
         <div className="font-semibold">
-          Autor:{' '}
+          {authorTranslate}:{' '}
           <a href={author.profileUrl} target="_blank" rel="noreferrer">
             <span className="font-light italic" style={{ color: '#293462' }}>
               {author.name} - {author.user}
@@ -44,11 +46,11 @@ export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, autho
       </div>
 
       <div>
-        <span className="font-semibold">{dateTranslate}:</span> {date}
+        <span className="font-semibold">{dateTranslate}:</span> {format(getDate(date), 'P')} {format(getDate(date), 'hh:mm aaa')}
       </div>
 
       <div className="flex justify-between items-end" style={{ color: '#293462' }}>
-        <span>({formatDistanceToNow(new Date(date), { includeSeconds: true })})</span>
+        <span>({formatDistanceToNow(new Date(date), { includeSeconds: true, locale: dateLocale })})</span>
         <a href={url} className="italic" target="_blank" rel="noreferrer">
           {id.substring(0, 7)}
         </a>

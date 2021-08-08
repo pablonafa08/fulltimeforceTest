@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles, AppBar, Toolbar } from '@material-ui/core'
+import { useLayoutLocales } from '../i18n'
 import { SelectLocale } from './SelectLocale'
 
 import logo from 'img/gitHubLogo.png'
@@ -22,12 +23,14 @@ const useStyles = makeStyles(() => ({
 }))
 
 export const Header = () => {
+  const { title } = useLayoutLocales()
   const classes = useStyles()
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar className={classes.body}>
         <img src={logo} alt="Logo TripElf" className="h-10" />
+        <span>{title}</span>
         <SelectLocale />
       </Toolbar>
     </AppBar>
