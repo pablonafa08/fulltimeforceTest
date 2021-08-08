@@ -9,9 +9,5 @@ export const useLocaleActions = () => {
     dispatch({ type: 'setLocale', payload: locale })
   }
 
-  function setMessages(locale: SupportedLocales, messages: Record<string, string>) {
-    dispatch({ type: 'setMessages', payload: { locale, messages } })
-  }
-
-  return { setLocale, setMessages }
+  return { setLocale }
 }

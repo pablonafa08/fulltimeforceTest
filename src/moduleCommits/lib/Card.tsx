@@ -1,5 +1,6 @@
 import React from 'react'
 import { formatDistanceToNow, parseISO } from 'date-fns'
+import { useCommitLocales } from '../i18n'
 import { CommitDataFormat } from '../utils'
 import { Container, ImgGit } from './CardItems'
 
@@ -19,7 +20,9 @@ const getDate = date => {
 }
 
 export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, author }) => {
+  const { date: dateTranslate } = useCommitLocales()
   console.log(date)
+
   return (
     <Container>
       <ImgGit src={gitImg} alt="GitHub Logo" />
@@ -41,7 +44,7 @@ export const Card: React.FC<CommitDataFormat> = ({ id, message, date, url, autho
       </div>
 
       <div>
-        <span className="font-semibold">Fecha:</span> {date}
+        <span className="font-semibold">{dateTranslate}:</span> {date}
       </div>
 
       <div className="flex justify-between items-end" style={{ color: '#293462' }}>
